@@ -30,6 +30,7 @@
                 })
             }
         })
+        function searchByCity(){
          document.getElementById('search').addEventListener('click',()=>{
                 var place= document.getElementById('input').value;
                 var urlsearch= `http://api.openweathermap.org/data/2.5/weather?q=${place}&appid=${apikey}`;
@@ -40,7 +41,7 @@
                     weatherReport(data);
                 })
             })
-
+        }
 
         function weatherReport(data){
 
@@ -131,8 +132,8 @@
     <div class="header">
         <h1>WEATHER APP</h1>
         <div>
-            <input type="text" name="" id="input" placeholder="Enter city name"></input>
-            <button id="search">Search</button>
+            <input type="text" name="" id="input" placeholder="Enter city name">
+            <button id="search"  onclick="searchByCity()">Search</button></input>
         </div>
     </div>
 
