@@ -12,7 +12,6 @@ body{
     font-family: 'Roboto', sans-serif;
     text-transform: capitalize;
     background: linear-gradient(45deg,rgba(183, 204, 248, 0.717),rgba(7, 43, 127, 0.679)), url('./background.jpg');
-    background-attachment:fixed;
     
     background-repeat: no-repeat;
     background-position: center;
@@ -27,7 +26,6 @@ body{
     color: rgb(214, 147, 45);
     text-decoration: underline;
     font-family: 'Orbitron', sans-serif;
-    text-align: left;
 }
 #input{
     font-size: 18px;
@@ -47,7 +45,6 @@ body{
     border-radius: 15px;
     cursor: pointer;
     border: none;
-    
 }
 .weather{
     text-align: center;
@@ -93,14 +90,11 @@ main{
     justify-content: space-between;
     align-items: center;
     margin: 10px 0;
-    text-align: center;
-    
-    
 }
 .next p,.next h3{
     margin: 3px 0;
 }
-.forecastD{
+.forecstD{
     margin: 20px 50px;
     color: aliceblue;
 }
