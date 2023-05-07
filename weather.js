@@ -5,11 +5,11 @@ window.addEventListener("load",()=>{
         navigator.geolocation.getCurrentPosition((position)=>{
             let lon= position.coords.longitude;
             let lat= position.coords.latitude;
-            const url= `http://api.openweathermap.org/data/2.5/weather?lat=&appid=${apikey}`;
+            const url= `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&` + `lon=${lon}&appid=${apikey}`;
             
 
             fetch(url).then((res)=>{
-                return res.json()
+                return res.json();
             }).then((data)=>{
                 console.log(data);
                 console.log(new Date().getTime())
@@ -17,29 +17,31 @@ window.addEventListener("load",()=>{
                 console.log(dat.toLocaleString(undefined,'Asia/Kolkata'))
                 console.log(new Date().getMinutes())
                 weatherReport(data);
-
             })
         })
     }
 })
- document.getElementById('search').addEventListener('click',()=>{
-        var place= document.getElementById('input').value;
-        var urlsearch= `http://api.openweathermap.org/data/2.5/weather?q=${place}&appid=${apikey}`;
-        fetch(urlsearch).then((res)=>{
-            return res.json()
-        }).then((data)=>{
-            console.log(data);
-            weatherReport(data);
-        })
-    })
 
+
+function searchByCity(){
+    var place= document.getElementById('input').value;
+    var urlsearch= `http://api.openweathermap.org/data/2.5/weather?q=${place}&` + `appid=${apikey}`;
+
+    fetch(urlsearch).then((res)=>{
+        return res.json();
+    }).then((data)=>{
+        console.log(data);
+        weatherReport(data);
+    })
+    document.getElementById('input').value='';
+}
 
 function weatherReport(data){
 
     var urlcast= `http://api.openweathermap.org/data/2.5/forecast?q=${data.name}&` + `appid=${apikey}`;
 
     fetch(urlcast).then((res)=>{
-        return res.json()
+        return res.json();
     }).then((forecast)=>{
         console.log(forecast.city);
         hourForecast(forecast);
